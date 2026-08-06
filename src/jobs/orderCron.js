@@ -1,11 +1,9 @@
 const cron = require("node-cron");
 const db = require("../config/db");
-const cron = require("node-cron");
-const db = require("../config/db");
 
-// ========================================
+
 // AUTO EXPIRE ORDER
-// ========================================
+
 
 // Jalankan setiap 1 menit
 cron.schedule("* * * * *", async () => {

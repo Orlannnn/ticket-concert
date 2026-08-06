@@ -1,12 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-require("./jobs/orderCron ")
+require("./jobs/orderCron")
 
 const authRoutes = require("./routes/authRoutes");
 const concertRoutes = require("./routes/concertRoutes");
-const ticketCategoryRoutes = require("./routes/ticketCategoryRoutes")
-const orderRoutes = require("./routes/orderRoutes")
+const orderRoutes = require("./routes/orderRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
+const ticketRoutes = require("./routes/ticketRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
 
@@ -16,8 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/concerts", concertRoutes);
-app.use("/api/tickets", ticketCategoryRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/payments", paymentRoutes);
+app.use("/api/tickets", ticketRoutes);
+app.use("/api/admin", adminRoutes);
 
 app.get("/", (req, res) => {
   res.json({
